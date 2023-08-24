@@ -4,7 +4,7 @@ import { defaultTheme } from "./styles/themes/default";
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <h1>coisa</h1>
+      <h1>hello</h1>
     </ThemeProvider>
   )
 }
