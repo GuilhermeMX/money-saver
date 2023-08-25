@@ -1,7 +1,11 @@
+import { HeaderContainer, HeaderContent } from "./style";
+
 export function Header() {
   return (
-    <div>
-      
-    </div>
+    <HeaderContainer>
+      <HeaderContent>
+        <button>Nova transação</button>
+      </HeaderContent>
+    </HeaderContainer>
   )
 }
