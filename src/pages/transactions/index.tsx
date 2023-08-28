@@ -9,7 +9,7 @@ export function Transactions() {
       <Header />
       <Balance />
 
-     <TransactionsContainer>
+      <TransactionsContainer>
         <SearchForm />
 
         <TransactionsTable>
@@ -26,7 +26,7 @@ export function Transactions() {
             </tr>
 
             <tr>
-              <td width="50%">Desenvolvimento do site</td>
+              <td width="50%">Aluguel</td>
               <td>-- R$ 1.200,00</td>
               <td>
                 <PriceHighlight variant="outcome">
@@ -39,7 +39,7 @@ export function Transactions() {
 
           </tbody>
         </TransactionsTable>
-     </TransactionsContainer>
+      </TransactionsContainer>
     </div>
   )
 }
