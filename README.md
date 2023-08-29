@@ -1,5 +1,17 @@
 # React + TypeScript + Vite
 
+This project is an Full Stack financial management app.
+
+You can also get our API and adjust this to manage/register any other product or personal project.
+
+To set this project on your machine, follow these steps bellow:
+
+1 - Clone the repo and install dev dependencies
+
+npm install
+
+2 - Set typescript issues/linting
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
