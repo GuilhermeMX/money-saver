@@ -1,7 +1,9 @@
 import { ArrowCircleUp, CurrencyDollar } from "phosphor-react";
-import { BalanceCard, BalanceContainer } from "./styles";
 import { useContext } from "react";
+
 import { TransactionsContext } from "../../contexts/TransactionsContext";
+
+import { BalanceCard, BalanceContainer } from "./styles";
 
 export function Balance() {
   const { transactions } = useContext(TransactionsContext)

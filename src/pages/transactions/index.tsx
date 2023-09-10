@@ -3,9 +3,9 @@ import { useContext } from "react";
 import { Header } from "../../components/Header";
 import { Balance } from "../../components/Balance";
 import { SearchForm } from "./components/SearchForm";
+import { TransactionsContext } from "../../contexts/TransactionsContext";
 
 import { PriceHighlight, TransactionsContainer, TransactionsTable } from "./styles";
-import { TransactionsContext } from "../../contexts/TransactionsContext";
 
 export function Transactions() {
   const { transactions } = useContext(TransactionsContext)
