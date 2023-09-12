@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { TransactionsContext } from "../../contexts/TransactionsContext";
 
 import { BalanceCard, BalanceContainer } from "./styles";
+import { priceFormatter } from "../../utils/formatter";
 
 export function Balance() {
   const { transactions } = useContext(TransactionsContext)
@@ -28,7 +29,7 @@ export function Balance() {
           <ArrowCircleUp size={32} color="#00b37e" />
         </header>
 
-        <strong>{balance.income}</strong>
+        <strong>{priceFormatter.format(balance.income)}</strong>
       </BalanceCard>
 
       <BalanceCard>
@@ -37,7 +38,7 @@ export function Balance() {
           <ArrowCircleUp size={32} color="#f75a68" />
         </header>
 
-        <strong>{balance.outcome}</strong>
+        <strong>{priceFormatter.format(balance.outcome)}</strong>
       </BalanceCard>
 
       <BalanceCard variant="green">
@@ -46,7 +47,7 @@ export function Balance() {
           <CurrencyDollar size={32} color="#fff" />
         </header>
 
-        <strong>{balance.total}</strong>
+        <strong>{priceFormatter.format(balance.total)}</strong>
       </BalanceCard>
     </BalanceContainer>
   );
