@@ -8,8 +8,18 @@ import { BalanceCard, BalanceContainer } from "./styles";
 export function Balance() {
   const { transactions } = useContext(TransactionsContext)
 
-  console.log(transactions)
-  
+  const balance = transactions.reduce((acc, transaction) => {
+    if (transaction.type === 'income') {
+      acc.income += transaction.price;
+      acc.total += transaction.price;
+    } else {
+      acc.outcome += transaction.price;
+      acc.total -= transaction.price;
+    }
+
+    return acc;
+  }, { income: 0, outcome: 0, total: 0 })
+
   return (
     <BalanceContainer>
       <BalanceCard>
@@ -18,7 +28,7 @@ export function Balance() {
           <ArrowCircleUp size={32} color="#00b37e" />
         </header>
 
-        <strong>R$ 12.400,00</strong>
+        <strong>{balance.income}</strong>
       </BalanceCard>
 
       <BalanceCard>
@@ -27,7 +37,7 @@ export function Balance() {
           <ArrowCircleUp size={32} color="#f75a68" />
         </header>
 
-        <strong>R$ 7.273,30</strong>
+        <strong>{balance.outcome}</strong>
       </BalanceCard>
 
       <BalanceCard variant="green">
@@ -36,7 +46,7 @@ export function Balance() {
           <CurrencyDollar size={32} color="#fff" />
         </header>
 
-        <strong>R$ 5.166,70</strong>
+        <strong>{balance.total}</strong>
       </BalanceCard>
     </BalanceContainer>
   );

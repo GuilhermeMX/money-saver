@@ -15,6 +15,14 @@
       "category": "Alimentação",
       "price": 50,
       "createdAt": "2022-07-29T19:30:44.505Z"
+    },
+    {
+      "id": 3,
+      "description": "Ração dos dogs",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 180,
+      "createdAt": "2022-07-29T19:24:44.505Z"
     }
   ]
 }
