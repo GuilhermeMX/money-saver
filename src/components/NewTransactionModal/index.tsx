@@ -1,7 +1,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import * as z from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
 
 import { CloseButton, Content, Overlay, TransactionType, TransactionTypeButton } from "./styles";
@@ -16,7 +16,9 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
 export function NewTransactionModal() {
-  const { register, 
+  const { 
+    control,
+    register, 
     handleSubmit,
     formState: { isSubmitting },  
   } = useForm<NewTransactionFormInputs>({
@@ -43,17 +45,7 @@ export function NewTransactionModal() {
           <input type="number" placeholder="Preço" required {...register('prince', { valueAsNumber: true })} />
           <input type="text" placeholder="Categoria" required {...register('category')} />
 
-          <TransactionType>
-            <TransactionTypeButton variant="income" value="income">
-              <ArrowCircleUp size={24} />
-              Entrada
-            </TransactionTypeButton>
-
-            <TransactionTypeButton variant="outcome" value="outcome">
-              <ArrowCircleDown size={24} />
-              Saída
-            </TransactionTypeButton>
-          </TransactionType>
+          <Controller />
 
           <button type="submit" disabled={isSubmitting}>
             Cadastrar
