@@ -10,7 +10,7 @@ const newTransactionFormSchema = z.object({
   description: z.string(),
   prince: z.number(),
   category: z.string(),
-  //type: z.enum(['income', 'outcome'])
+  type: z.enum(['income', 'outcome'])
 })
 
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
@@ -45,7 +45,25 @@ export function NewTransactionModal() {
           <input type="number" placeholder="Preço" required {...register('prince', { valueAsNumber: true })} />
           <input type="text" placeholder="Categoria" required {...register('category')} />
 
-          <Controller />
+          <Controller 
+            control={control}
+            name="type"
+            render={({ field }) => {
+              return (
+                <TransactionType onValueChange={field.onChange} value={field.value}>
+                  <TransactionTypeButton variant="income" value="income">
+                    <ArrowCircleUp size={24} />
+                    Entrada
+                  </TransactionTypeButton>
+
+                  <TransactionTypeButton variant="outcome" value="outcome">
+                    <ArrowCircleDown size={24} />
+                    Saída
+                  </TransactionTypeButton>
+                </TransactionType>
+              )
+            }}
+          />
 
           <button type="submit" disabled={isSubmitting}>
             Cadastrar
